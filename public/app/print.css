@@ -1,0 +1,53 @@
+/* What prints. main.js sets body[data-print]:
+   "list"   the vocabulary list: the title and source, then each ticked word
+            with its ~level and sentence (also what Ctrl+P prints with a deck);
+   "sheet"  the worksheet, the answer key on a page of its own;
+   absent   no deck: the page prints as it is.
+   The page's controls are never printed with a list or a sheet. */
+
+body[data-print="list"] > :not(.printout) { display: none !important; }
+body[data-print="sheet"] > :not(main),
+body[data-print="sheet"] main > :not(#worksheet),
+body[data-print="sheet"] #worksheet > :not(.sheet) { display: none !important; }
+body[data-print="sheet"] .printout { display: none !important; }
+
+@page { margin: 18mm 16mm; }
+
+body {
+  background: #fff;
+  color: #000;
+  font: 11pt/1.45 Georgia, "Times New Roman", serif;
+}
+
+.printout { display: block; }
+.printout h1 { font-size: 18pt; margin: 0 0 2pt; }
+.printout .source { margin: 0 0 10pt; font-style: italic; color: #333; }
+
+.printout table { width: 100%; border-collapse: collapse; }
+.printout th, .printout td {
+  text-align: left;
+  vertical-align: top;
+  padding: 5pt 6pt 5pt 0;
+  border-bottom: 0.5pt solid #999;
+}
+.printout thead th { font-size: 9pt; font-weight: 600; color: #333; }
+.printout tr { break-inside: avoid; }
+.printout th.face { font-weight: 700; white-space: nowrap; }
+.printout td.level { white-space: nowrap; width: 1%; font-size: 9.5pt; }
+.printout .chip { background: none; border: 0.5pt solid #666; border-radius: 6pt; padding: 0 3pt; }
+.printout .kind { margin-left: 3pt; font-size: 8.5pt; color: #333; }
+.printout .legend { margin-top: 10pt; font-size: 8.5pt; color: #333; }
+
+/* The worksheet on paper: no frame, no screen colours, the key on its own page. */
+body[data-print="sheet"] main { max-width: none; padding: 0; margin: 0; }
+body[data-print="sheet"] #worksheet { display: block !important; }
+.sheet { border: 0; padding: 0; margin: 0; font-size: 12pt; line-height: 2; }
+.sheet h1 { font-size: 16pt; }
+.sheet h2 { font-size: 12.5pt; break-after: avoid; }
+.sheet .item, .sheet .asked li { break-inside: avoid; }
+/* Every blank prints 50 mm wide: room for a word written by hand. */
+.sheet .gap { width: 50mm; }
+/* A heading-like line of the text with the next, and each heading with what
+   follows it (review.js): never split, so neither ends a page alone. */
+.sheet .keep { break-inside: avoid; }
+.sheet .key { break-before: page; border-top: 0; margin-top: 0; padding-top: 0; }

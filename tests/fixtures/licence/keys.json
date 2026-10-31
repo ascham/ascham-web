@@ -1,0 +1,9 @@
+{
+  "valid1": "ASCH1.eyJ2IjoxLCJtYXgiOjEsImJ1eWVyIjoiIn0.6mGPE3_86txcNoyQwgWHCFZHtLI3dEfmW8D63y0j7fTt-EclOtZsITW44ItpniBpeRE2Vv7C9nsELVQeVvtzcQ",
+  "namedBuyer": "ASCH1.eyJ2IjoxLCJtYXgiOjEsImJ1eWVyIjoiZXhhbXBsZS1idXllciJ9.mWRiUUNx0PHHsA2mYPyoce_fTljtOzWMLh6dYJzeIMZISelWtAf2GqEVperyzVF-BDu1JUfTQJL97TAlKJEq3g",
+  "ceilingZero": "ASCH1.eyJ2IjoxLCJtYXgiOjAsImJ1eWVyIjoiIn0.ifmdTM8lUREg5ak2xg6twgvUu8WGD7iMNBkb9iBcWTP7iDa7VnHHwi5r1gJ9M6ujuLh6WL5zmDHls8UzG5e4cw",
+  "wrongFormat": "ASCH1.eyJ2IjoyLCJtYXgiOjEsImJ1eWVyIjoiIn0.Fc_pyGc-NPLd6PVm8CRYOawBmfzbHuw4cF6YO3aHYP_fH8270rqMtLzfCuXEm6jBphwBukZRW88pULAIma4YUw",
+  "noCeiling": "ASCH1.eyJ2IjoxLCJidXllciI6IiJ9.xaMZBaEWcmlCaLjSVCEGEGz_IPNUR7ZEyYuzeHYh8BZ-DDpL91IaoPdSZw9Vwz8-7dkTe8wFjHW46zXUsMJ4DQ",
+  "forged": "ASCH1.eyJ2IjoxLCJtYXgiOjEsImJ1eWVyIjoiIn0.PTTEW6BEaTaCeZ-ADXoJKPN_t-1lQ5Py7sIXQxp7-O3gGA5I74XOHZLL8oyNrHFGfZ54Ppw4TKwkUBY2-wSicw",
+  "malformed": "ASCH1.not-a-licence-key"
+}

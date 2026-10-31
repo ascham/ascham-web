@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en-GB" translate="no">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'none'; form-action 'none'; base-uri 'none'; frame-ancestors 'none'">
+  <meta name="referrer" content="no-referrer">
+  <meta name="google" content="notranslate">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ascham</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="print.css" media="print">
+  <script type="module" src="../../src/ui/main.js"></script>
+</head>
+<body>
+  <!-- Every word on this page comes from src/ui/strings.js, by data-s key (check.sh U1). -->
+  <header class="top">
+    <h1 data-s="appName"></h1>
+  </header>
+
+  <main>
+    <section class="input" aria-labelledby="input-heading">
+      <h2 id="input-heading" data-s="inputHeading"></h2>
+
+      <label for="paste" data-s="pasteLabel"></label>
+      <textarea id="paste" rows="12" autocomplete="off" spellcheck="false" aria-describedby="paste-help paste-tip"></textarea>
+      <p class="help" id="paste-help" data-s="pasteHelp"></p>
+      <p class="help" id="paste-tip" data-s="pasteTip"></p>
+
+      <p class="hint" id="hint" hidden></p>
+
+      <label for="title"><span data-s="titleLabel"></span> <span class="optional" data-s="optional"></span></label>
+      <input id="title" type="text" maxlength="500" autocomplete="off" spellcheck="false">
+
+      <label for="source-field"><span data-s="sourceLabel"></span> <span class="optional" data-s="optional"></span></label>
+      <input id="source-field" type="text" maxlength="500" autocomplete="off" spellcheck="false">
+
+      <div class="controls">
+        <label class="check"><input type="checkbox" id="keep-breaks" checked> <span data-s="keepBreaks"></span></label>
+        <button type="button" id="read" class="primary" data-s="read"></button>
+      </div>
+    </section>
+
+    <p id="status" class="status" role="status" aria-live="polite" hidden></p>
+    <p id="notice" class="notice" hidden></p>
+
+    <section id="results" class="results" aria-labelledby="results-heading" hidden>
+      <h2 id="results-heading" tabindex="-1" data-s="resultsHeading"></h2>
+      <p id="deck-title" class="deck-title" hidden></p>
+      <p id="deck-source" class="source" hidden></p>
+      <p id="note" class="note" hidden></p>
+      <p id="dropped" class="note" hidden></p>
+
+      <div class="bar">
+        <span id="tally" class="tally"></span>
+        <button type="button" id="all" class="link" data-s="all"></button>
+        <button type="button" id="none" class="link" data-s="none"></button>
+        <button type="button" id="door" class="link" aria-controls="declined"></button>
+      </div>
+
+      <table id="cards" class="cards">
+        <thead>
+          <tr><th scope="col" data-s="colKeep"></th><th scope="col" data-s="colWord"></th><th scope="col" data-s="colLevel"></th><th scope="col" data-s="colSentence"></th></tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+
+      <div id="declined" class="declined" hidden></div>
+
+      <div class="actions" id="actions">
+        <button type="button" id="export-csv" class="primary" data-s="exportCsv"></button>
+        <button type="button" id="print-list" data-s="printList"></button>
+        <button type="button" id="print-sheet" data-s="printSheet" aria-describedby="print-sheet-pro" aria-disabled="true"></button>
+        <span class="pro-line" id="print-sheet-pro" data-s="proLine"></span>
+      </div>
+      <p class="help" id="print-help" data-s="printTip"></p>
+    </section>
+
+    <section id="worksheet" class="worksheet" aria-labelledby="worksheet-heading" hidden>
+      <h2 id="worksheet-heading" data-s="worksheetHeading"></h2>
+      <div class="controls">
+        <label class="check"><input type="checkbox" id="opt-full-text"> <span data-s="optFullText"></span></label>
+        <label class="check"><input type="checkbox" id="opt-answer-key" checked> <span data-s="optAnswerKey"></span></label>
+      </div>
+      <details id="questions" class="questions">
+        <summary data-s="questionsSummary"></summary>
+        <p class="help" data-s="questionsHelp"></p>
+        <h3 data-s="before"></h3>
+        <ol>
+          <li><input type="text" data-q="before" maxlength="300" autocomplete="off" spellcheck="false"></li>
+          <li><input type="text" data-q="before" maxlength="300" autocomplete="off" spellcheck="false"></li>
+          <li><input type="text" data-q="before" maxlength="300" autocomplete="off" spellcheck="false"></li>
+          <li><input type="text" data-q="before" maxlength="300" autocomplete="off" spellcheck="false"></li>
+          <li><input type="text" data-q="before" maxlength="300" autocomplete="off" spellcheck="false"></li>
+        </ol>
+        <h3 data-s="while"></h3>
+        <ol>
+          <li><input type="text" data-q="while" maxlength="300" autocomplete="off" spellcheck="false"></li>
+          <li><input type="text" data-q="while" maxlength="300" autocomplete="off" spellcheck="false"></li>
+          <li><input type="text" data-q="while" maxlength="300" autocomplete="off" spellcheck="false"></li>
+          <li><input type="text" data-q="while" maxlength="300" autocomplete="off" spellcheck="false"></li>
+          <li><input type="text" data-q="while" maxlength="300" autocomplete="off" spellcheck="false"></li>
+        </ol>
+        <h3 data-s="after"></h3>
+        <ol>
+          <li><input type="text" data-q="after" maxlength="300" autocomplete="off" spellcheck="false"></li>
+          <li><input type="text" data-q="after" maxlength="300" autocomplete="off" spellcheck="false"></li>
+          <li><input type="text" data-q="after" maxlength="300" autocomplete="off" spellcheck="false"></li>
+          <li><input type="text" data-q="after" maxlength="300" autocomplete="off" spellcheck="false"></li>
+          <li><input type="text" data-q="after" maxlength="300" autocomplete="off" spellcheck="false"></li>
+        </ol>
+      </details>
+      <p id="deck-only" class="note" hidden></p>
+      <div id="sheet" class="sheet"></div>
+    </section>
+
+    <div class="actions project">
+      <button type="button" id="save" data-s="saveProject" hidden></button>
+      <input id="open" class="file" type="file" accept=".json,application/json">
+      <label for="open" class="button" data-s="openLabel"></label>
+      <button type="button" id="reset" data-s="reset"></button>
+    </div>
+
+    <details id="settings" class="settings">
+      <summary id="settings-summary" data-s="settingsSummary"></summary>
+
+      <section class="licence" aria-labelledby="licence-heading">
+        <h3 id="licence-heading" data-s="licenceHeading"></h3>
+        <p id="licence-state" class="licence-state" role="status" aria-live="polite"></p>
+        <label for="key" data-s="keyLabel"></label>
+        <textarea id="key" rows="3" autocomplete="off" spellcheck="false" aria-describedby="key-help"></textarea>
+        <p class="help" id="key-help" data-s="keyHelp"></p>
+        <div class="actions">
+          <button type="button" id="key-save" data-s="keySave"></button>
+          <button type="button" id="key-remove" data-s="keyRemove"></button>
+        </div>
+      </section>
+
+      <p id="upgrade" class="upgrade" data-s="upgrade"></p>
+
+      <fieldset id="tier" class="pro" aria-describedby="tier-pro">
+        <legend data-s="tierLegend"></legend>
+        <p class="pro-line" id="tier-pro" data-s="proLine"></p>
+        <label class="choice"><input type="radio" name="tier" data-v="young"> <span data-s="tierYoung"></span>
+          <span class="why" data-s="tierYoungWhy"></span></label>
+        <label class="choice"><input type="radio" name="tier" data-v="standard"> <span data-s="tierStandard"></span>
+          <span class="why" data-s="tierStandardWhy"></span></label>
+        <label class="choice"><input type="radio" name="tier" data-v="off"> <span data-s="tierOff"></span>
+          <span class="why" data-s="tierOffWhy"></span></label>
+      </fieldset>
+
+      <div class="pro">
+        <label for="terms" data-s="termsLabel"></label>
+        <p class="pro-line" id="terms-pro" data-s="proLine"></p>
+        <textarea id="terms" rows="4" autocomplete="off" spellcheck="false" aria-describedby="terms-pro terms-help"></textarea>
+        <p class="help" id="terms-help" data-s="termsHelp"></p>
+      </div>
+
+      <fieldset id="card-style" class="pro" aria-describedby="style-pro">
+        <legend data-s="styleLegend"></legend>
+        <p class="pro-line" id="style-pro" data-s="proLine"></p>
+        <label class="choice"><input type="radio" name="card-style" data-v="basic"> <span data-s="styleBasic"></span>
+          <span class="why" id="style-basic-why"></span></label>
+        <label class="choice"><input type="radio" name="card-style" data-v="cloze"> <span data-s="styleCloze"></span>
+          <span class="why" data-s="styleClozeWhy"></span></label>
+      </fieldset>
+
+      <div class="pro">
+        <label for="deck-tag" data-s="tagLabel"></label>
+        <p class="pro-line" id="tag-pro" data-s="proLine"></p>
+        <input id="deck-tag" type="text" maxlength="60" autocomplete="off" spellcheck="false" aria-describedby="tag-pro tag-help">
+        <p class="help" id="tag-help" data-s="tagHelp"></p>
+      </div>
+
+      <div class="actions">
+        <button type="button" id="settings-save" data-s="settingsSave"></button>
+      </div>
+      <p id="settings-said" class="status" role="status" aria-live="polite" hidden></p>
+    </details>
+  </main>
+
+  <footer>
+    <p class="note" data-s="independent"></p>
+    <p class="note" data-s="licenceLine"></p>
+  </footer>
+
+  <section id="printout" class="printout" hidden></section>
+
+  <dialog id="confirm" class="confirm" aria-labelledby="confirm-text">
+    <p id="confirm-text" data-s="confirmReplace"></p>
+    <div class="actions">
+      <button type="button" id="confirm-no" class="primary" data-s="confirmNo"></button>
+      <button type="button" id="confirm-yes" data-s="confirmYes"></button>
+    </div>
+  </dialog>
+
+  <dialog id="reset-confirm" class="confirm" aria-labelledby="reset-confirm-text">
+    <p id="reset-confirm-text" data-s="confirmReset"></p>
+    <div class="actions">
+      <button type="button" id="reset-no" class="primary" data-s="confirmResetNo"></button>
+      <button type="button" id="reset-yes" data-s="confirmResetYes"></button>
+    </div>
+  </dialog>
+</body>
+</html>

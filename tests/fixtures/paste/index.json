@@ -1,0 +1,104 @@
+[
+  {
+    "file": "nasa.chrome.txt",
+    "source": "nasa",
+    "url": "https://www.nasa.gov/news-release/nasa-awards-launch-services-contract-for-dragonfly-mission/",
+    "browser": "Chrome/155.0.8059.39",
+    "captured": "2026-10-11",
+    "rights": "public-domain",
+    "licence": "public domain: a work of the US federal government (NASA), 17 USC 105. The release's title and first three paragraphs verbatim, and its first caption with the caption's credit, NASA/Johns Hopkins APL/Steve Gribben; the standfirst, byline, the second caption, the links and notes, and the alt text written for the fixture"
+  },
+  {
+    "file": "nasa.firefox.txt",
+    "source": "nasa",
+    "url": "https://www.nasa.gov/news-release/nasa-awards-launch-services-contract-for-dragonfly-mission/",
+    "browser": "Firefox/153.4.0",
+    "captured": "2026-10-11",
+    "rights": "public-domain",
+    "licence": "public domain: a work of the US federal government (NASA), 17 USC 105. The release's title and first three paragraphs verbatim, and its first caption with the caption's credit, NASA/Johns Hopkins APL/Steve Gribben; the standfirst, byline, the second caption, the links and notes, and the alt text written for the fixture"
+  },
+  {
+    "file": "gutenberg.chrome.txt",
+    "source": "gutenberg",
+    "url": "https://www.gutenberg.org/ebooks/1342",
+    "browser": "Chrome/155.0.8059.39",
+    "captured": "2026-10-11",
+    "rights": "public-domain",
+    "licence": "public domain: Jane Austen, Pride and Prejudice (1813), chapter 1, as on Project Gutenberg #1342. Paragraphs verbatim but for Gutenberg's italic _You_ set plain; headline, standfirst, byline, caption and alt text written for the fixture"
+  },
+  {
+    "file": "gutenberg.firefox.txt",
+    "source": "gutenberg",
+    "url": "https://www.gutenberg.org/ebooks/1342",
+    "browser": "Firefox/153.4.0",
+    "captured": "2026-10-11",
+    "rights": "public-domain",
+    "licence": "public domain: Jane Austen, Pride and Prejudice (1813), chapter 1, as on Project Gutenberg #1342. Paragraphs verbatim but for Gutenberg's italic _You_ set plain; headline, standfirst, byline, caption and alt text written for the fixture"
+  },
+  {
+    "file": "wikisource.chrome.txt",
+    "source": "wikisource",
+    "url": "https://en.wikisource.org/wiki/United_States_Declaration_of_Independence_(engrossed_copy)",
+    "browser": "Chrome/155.0.8059.39",
+    "captured": "2026-10-11",
+    "rights": "public-domain",
+    "licence": "public domain: the United States Declaration of Independence (1776), as on Wikisource's transcription of the engrossed copy, tagged PD-old there. Text verbatim but for its dashes, underscores on Wikisource, set as '--', and a footnote marker added; page furniture, hatnote, note, the heading 'Grievances', caption and alt text written for the fixture, not copied from Wikisource"
+  },
+  {
+    "file": "wikisource.firefox.txt",
+    "source": "wikisource",
+    "url": "https://en.wikisource.org/wiki/United_States_Declaration_of_Independence_(engrossed_copy)",
+    "browser": "Firefox/153.4.0",
+    "captured": "2026-10-11",
+    "rights": "public-domain",
+    "licence": "public domain: the United States Declaration of Independence (1776), as on Wikisource's transcription of the engrossed copy, tagged PD-old there. Text verbatim but for its dashes, underscores on Wikisource, set as '--', and a footnote marker added; page furniture, hatnote, note, the heading 'Grievances', caption and alt text written for the fixture, not copied from Wikisource"
+  },
+  {
+    "file": "email.chrome.txt",
+    "source": "email",
+    "browser": "Chrome/155.0.8059.39",
+    "captured": "2026-10-11",
+    "rights": "original",
+    "licence": "original: an invented message written for the fixture; sender, list and links at reserved example domains"
+  },
+  {
+    "file": "email.firefox.txt",
+    "source": "email",
+    "browser": "Firefox/153.4.0",
+    "captured": "2026-10-11",
+    "rights": "original",
+    "licence": "original: an invented message written for the fixture; sender, list and links at reserved example domains"
+  },
+  {
+    "file": "pdf.chrome.txt",
+    "source": "pdf",
+    "how": "copied by hand from sample.pdf in Chromium's PDF viewer, title to the end of the third paragraph",
+    "browser": "Chromium/155.0.8059.79",
+    "captured": "2026-10-18",
+    "rights": "public-domain",
+    "licence": "public domain: Mark Twain, Life on the Mississippi (1883), chapter 1, paragraphs 2 to 5, verbatim from Project Gutenberg #245 (https://www.gutenberg.org/ebooks/245), its double hyphens set as dashes; heading line and footnote written for the fixture. Printed by Chrome from pdf-source.html, metadata stripped"
+  },
+  {
+    "file": "pdf.firefox.txt",
+    "source": "pdf",
+    "url": "http://127.0.0.1:8742/sample.pdf",
+    "browser": "Firefox/153.4.0",
+    "captured": "2026-10-11",
+    "rights": "public-domain",
+    "licence": "public domain: Mark Twain, Life on the Mississippi (1883), chapter 1, paragraphs 2 to 5, verbatim from Project Gutenberg #245 (https://www.gutenberg.org/ebooks/245), its double hyphens set as dashes; heading line and footnote written for the fixture. Printed by Chrome from pdf-source.html, metadata stripped"
+  },
+  {
+    "file": "pdf-source.html",
+    "source": "pdf",
+    "url": "https://www.gutenberg.org/ebooks/245",
+    "rights": "public-domain",
+    "licence": "public domain: Mark Twain, Life on the Mississippi (1883), chapter 1, paragraphs 2 to 5, verbatim from Project Gutenberg #245, its double hyphens set as dashes; heading line and footnote written for the fixture"
+  },
+  {
+    "file": "sample.pdf",
+    "source": "pdf",
+    "url": "https://www.gutenberg.org/ebooks/245",
+    "rights": "public-domain",
+    "licence": "public domain: Mark Twain, Life on the Mississippi (1883), chapter 1, paragraphs 2 to 5, verbatim from Project Gutenberg #245, its double hyphens set as dashes; heading line and footnote written for the fixture; printed by Chrome from pdf-source.html, metadata stripped"
+  }
+]

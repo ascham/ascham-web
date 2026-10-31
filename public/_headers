@@ -1,0 +1,11 @@
+# Response headers for the static host, in the _headers file format.
+# The CSP must equal the <meta> tag in every page; scripts/check.sh holds both
+# to the one canonical string. frame-ancestors only takes effect here.
+# HSTS is held to check.sh's HSTS string, which records the staging plan.
+/*
+  Content-Security-Policy: default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'none'; form-action 'none'; base-uri 'none'; frame-ancestors 'none'
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: no-referrer
+  Cross-Origin-Opener-Policy: same-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
+  Strict-Transport-Security: max-age=86400

@@ -1,0 +1,334 @@
+/* One stylesheet, no fonts or images from anywhere (check.sh H1). */
+:root {
+  color-scheme: light dark;
+  --ink: #1d1c22;
+  --paper: #fbfaf7;
+  --panel: #ffffff;
+  --muted: #5b5866;
+  --rule: #d9d6cf;
+  --accent: #2f5d50;
+  --accent-ink: #ffffff;
+  --focus: #1f6feb;
+  --off: #8a8794;
+  --chip: #ece9e2;
+  --chip-high: #e3ece8;
+  --hint: #fdf6dc;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --ink: #ecebf0;
+    --paper: #18171c;
+    --panel: #201f25;
+    --muted: #a7a4b1;
+    --rule: #3a3842;
+    --accent: #7fbfa9;
+    --accent-ink: #10221c;
+    --focus: #79b8ff;
+    --off: #77747f;
+    --chip: #2c2a31;
+    --chip-high: #24342e;
+    --hint: #352f19;
+  }
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font: 17px/1.55 system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+.top, main {
+  max-width: 60rem;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+.top { padding-top: 1.25rem; }
+.top h1 { font-size: 1.35rem; margin: 0; letter-spacing: 0.01em; }
+main { padding-bottom: 4rem; }
+
+h2 { font-size: 1.1rem; margin: 1.75rem 0 0.75rem; }
+h3 { font-size: 1rem; margin: 1.25rem 0 0.25rem; }
+
+label { display: block; font-weight: 600; margin: 1rem 0 0.35rem; }
+.optional { font-weight: 400; color: var(--muted); }
+
+input[type="text"], textarea {
+  display: block;
+  width: 100%;
+  font: inherit;
+  color: inherit;
+  background: var(--panel);
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  padding: 0.6rem 0.7rem;
+}
+textarea { min-height: 12rem; resize: vertical; line-height: 1.5; }
+
+.help, .note, .source, .tally { color: var(--muted); }
+.help { margin: 0.4rem 0 0; font-size: 0.92rem; }
+
+.hint, .notice {
+  background: var(--hint);
+  border-radius: 6px;
+  padding: 0.6rem 0.8rem;
+  margin: 0.75rem 0 0;
+}
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem 1.5rem;
+  margin-top: 1rem;
+}
+label.check { display: inline-flex; align-items: center; gap: 0.45rem; font-weight: 400; margin: 0; }
+label.check input { width: 1.1rem; height: 1.1rem; margin: 0; }
+
+button {
+  font: inherit;
+  cursor: pointer;
+  border-radius: 6px;
+}
+button.primary {
+  background: var(--accent);
+  color: var(--accent-ink);
+  border: 0;
+  padding: 0.55rem 1.2rem;
+  font-weight: 600;
+}
+button.primary:disabled { opacity: 0.6; cursor: progress; }
+button.link {
+  background: none;
+  border: 0;
+  padding: 0.25rem 0.35rem;
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+}
+h2:focus { outline: none; }
+h2:focus-visible { outline: 3px solid var(--focus); }
+
+.status { margin: 1.25rem 0 0; font-weight: 600; }
+.deck-title { margin: -0.25rem 0 0.25rem; font-weight: 600; }
+.source { margin: 0 0 0.5rem; font-style: italic; }
+.note { margin: 0.25rem 0; }
+
+.bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.25rem 0.75rem;
+  margin: 0.75rem 0;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--rule);
+}
+.tally { margin-right: auto; }
+
+table.cards { width: 100%; border-collapse: collapse; }
+.cards th, .cards td {
+  text-align: left;
+  vertical-align: top;
+  padding: 0.6rem 0.5rem;
+  border-bottom: 1px solid var(--rule);
+}
+.cards thead th { font-size: 0.85rem; color: var(--muted); font-weight: 600; }
+.cards td.keep { width: 2.5rem; }
+.cards td.keep input { width: 1.15rem; height: 1.15rem; margin: 0.2rem 0 0; }
+.cards th.face label { margin: 0; font-weight: 600; cursor: pointer; }
+.cards td.level { white-space: nowrap; width: 1%; }
+.cards td.sentence { overflow-wrap: anywhere; }
+.cards tr.off .face, .cards tr.off .sentence, .cards tr.off .level { color: var(--off); }
+.cards tr.off .face label { text-decoration: line-through; }
+
+.chip {
+  display: inline-block;
+  font-size: 0.85rem;
+  padding: 0.05rem 0.45rem;
+  border-radius: 999px;
+  background: var(--chip);
+}
+.chip.b4, .chip.b5 { background: var(--chip-high); }
+.kind { font-size: 0.8rem; color: var(--muted); margin-left: 0.4em; }
+
+.declined p { margin: 0 0 0.5rem; overflow-wrap: anywhere; }
+.declined .withheld { color: var(--muted); margin-top: 1rem; }
+
+/* "Open a saved project": the file input stays in the tab order but out of
+   sight, and its label is the button; the input's focus ring is drawn on it. */
+input.file {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  overflow: hidden;
+}
+label.button {
+  display: inline-block;
+  margin: 0;
+  font-weight: 400;
+  cursor: pointer;
+  border-radius: 6px;
+  background: var(--panel);
+  color: var(--ink);
+  border: 1px solid var(--rule);
+  padding: 0.55rem 1.1rem;
+}
+input.file:focus-visible + label.button {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+}
+.actions.project {
+  position: relative;
+  margin-top: 2.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--rule);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.25rem;
+}
+.actions button:not(.primary) {
+  background: var(--panel);
+  color: var(--ink);
+  border: 1px solid var(--rule);
+  padding: 0.55rem 1.1rem;
+}
+
+/* The printed list lives in print.css; on screen it is never shown. */
+@media screen { .printout { display: none; } }
+
+/* The worksheet: the options, the teacher's questions, and the sheet itself,
+   shown as paper. The same element prints (print.css). */
+.questions { margin: 1rem 0; }
+.questions summary { cursor: pointer; font-weight: 600; }
+.questions h3 { font-size: 0.95rem; }
+.questions ol { margin: 0.25rem 0 0; padding-left: 1.75rem; }
+.questions li { margin: 0.3rem 0; }
+
+.sheet {
+  margin-top: 1rem;
+  padding: 2rem 2.25rem;
+  background: #fff;
+  color: #111;
+  color-scheme: light;
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  font: 16px/1.85 Georgia, "Times New Roman", serif;
+  overflow-wrap: anywhere;
+}
+.sheet h1 { font-size: 1.35rem; margin: 0 0 0.2rem; }
+.sheet h2 { font-size: 1.05rem; margin: 1.5rem 0 0.4rem; }
+.sheet .source { color: #444; margin: 0; }
+.sheet .who { display: flex; flex-wrap: wrap; gap: 0.5rem 2.5rem; margin: 1rem 0 0; }
+.sheet .fill { display: inline-flex; align-items: baseline; gap: 0.4rem; }
+.sheet .line { display: inline-block; width: 12em; border-bottom: 1px solid #111; }
+.sheet .full-text p { margin: 0 0 0.6rem; }
+.sheet .sample { margin: 1.5rem 0 0; padding-top: 0.75rem; border-top: 1px solid #555; font-style: italic; }
+.sheet .bank ul {
+  list-style: none;
+  margin: 0;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #555;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.2rem 1.5rem;
+}
+.sheet .how { font-style: italic; margin: 0 0 0.5rem; }
+.sheet .item { margin: 0 0 0.9rem; }
+.sheet .item .n { font-weight: 700; }
+/* One width for every gap, whatever it hides. */
+.sheet .gap {
+  display: inline-block;
+  width: 7.5em;
+  height: 1.3em;
+  vertical-align: text-bottom;
+  border-bottom: 1px solid #111;
+  font: 0.7em/1 system-ui, sans-serif;
+  color: #444;
+}
+.sheet .asked ol { margin: 0; padding-left: 1.5rem; }
+.sheet .asked li { margin: 0 0 1.6rem; }
+/* On screen the key's page break is a dashed line. */
+.sheet .key { margin-top: 2rem; padding-top: 1rem; border-top: 2px dashed #999; }
+.sheet .key ul { list-style: none; margin: 0; padding: 0; columns: 2; }
+.sheet .key .n { display: inline-block; min-width: 2.5em; font-weight: 700; }
+
+/* Settings and the licence key. Pro controls are greyed without a key, each
+   with its "Part of Pro." line; nothing else is said about Pro. */
+.settings {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--rule);
+}
+.settings summary { cursor: pointer; font-weight: 600; }
+.settings h3 { margin-top: 1rem; }
+.settings fieldset { border: 0; margin: 1.25rem 0 0; padding: 0; }
+.settings legend { font-weight: 600; padding: 0; margin-bottom: 0.35rem; }
+.settings textarea { min-height: 5rem; }
+.settings .actions { margin-top: 0.75rem; }
+label.choice { font-weight: 400; margin: 0.4rem 0; }
+label.choice input { margin: 0 0.4rem 0 0; }
+label.choice .why { display: block; margin-left: 1.6rem; color: var(--muted); font-size: 0.92rem; }
+.licence-state { font-weight: 600; margin: 0.25rem 0 0; }
+.upgrade { margin: 1.5rem 0 0; }
+.pro-line { color: var(--muted); font-size: 0.92rem; margin: 0 0 0.35rem; }
+.actions .pro-line { align-self: center; margin: 0; }
+:disabled { cursor: not-allowed; }
+.actions button[aria-disabled="true"] { opacity: 0.6; cursor: not-allowed; }
+.actions button:disabled, .settings :disabled + span, fieldset:disabled { opacity: 0.6; }
+input[type="text"]:disabled, textarea:disabled { opacity: 0.6; }
+
+/* The per-card style control (Pro), from the extension's popup. */
+.cards button.style {
+  margin-left: 0.4rem;
+  font-size: 0.8rem;
+  padding: 0 0.45rem;
+  border: 1px solid var(--rule);
+  background: var(--panel);
+  color: var(--muted);
+  border-radius: 999px;
+}
+.cards button.style.asked { color: var(--accent); border-color: var(--accent); font-weight: 600; }
+
+.confirm {
+  max-width: 28rem;
+  border: 1px solid var(--rule);
+  border-radius: 8px;
+  background: var(--panel);
+  color: var(--ink);
+  padding: 1.25rem 1.5rem;
+}
+.confirm::backdrop { background: rgb(0 0 0 / 0.4); }
+.confirm p { margin: 0; }
+
+[hidden] { display: none !important; }
+
+/* Phone width: each row becomes a small card; the sentence takes the width. */
+@media (max-width: 40rem) {
+  body { font-size: 16px; }
+  .cards thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+  .cards tr {
+    display: grid;
+    grid-template-columns: 2rem auto 1fr;
+    gap: 0.15rem 0.5rem;
+    padding: 0.6rem 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  .cards th, .cards td { display: block; padding: 0; border: 0; width: auto; }
+  .cards td.sentence { grid-column: 2 / -1; }
+  .sheet { padding: 1.25rem 1rem; }
+  .sheet .gap { width: 6em; }
+  .sheet .key ul { columns: 1; }
+}

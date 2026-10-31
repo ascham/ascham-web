@@ -1,0 +1,15 @@
+{
+  "warning": "TEST ONLY. This key pair signs the licence fixtures in this folder and nothing else. Its public half is not the one licence-core.js ships, so production refuses every key it signs (tests/logic.test.js holds that).",
+  "public": "BF33GhdRZ3OH3GvD2X87meHo7mlRfy9r3fACCVFBMCTMI4Yw-sjIEmccRGX3_OqFUzA-eBq-vzR-8WvEFibbfvI",
+  "private": {
+    "key_ops": [
+      "sign"
+    ],
+    "ext": true,
+    "kty": "EC",
+    "x": "XfcaF1Fnc4fca8PZfzuZ4ejuaVF_L2vd8AIJUUEwJMw",
+    "y": "I4Yw-sjIEmccRGX3_OqFUzA-eBq-vzR-8WvEFibbfvI",
+    "crv": "P-256",
+    "d": "EJ0Fwmnl8ecfvayY-PZ8h3fZIINIY_m___iOUPu79Zo"
+  }
+}

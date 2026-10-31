@@ -1,0 +1,6 @@
+#!/bin/sh
+# This repository is never pushed: only the public repository, made from the
+# export (scripts/export-public.sh), is. check.sh R3 holds this hook in place
+# in the owner's checkout.
+echo "pre-push: refused. This repository is never pushed." >&2
+exit 1
